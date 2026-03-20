@@ -5,7 +5,7 @@ import SkeletonCard from "./SkeletonCard.vue";
 import SpinControls from "./SpinControls.vue";
 import RecentItem from "./RecentItem.vue";
 import ShortcutsModal from "./ShortcutsModal.vue";
-import ArticleFactsCard from "./ArticleFactsCard.vue"; // new import
+import ArticleFactsCard from "./ArticleFactsCard.vue";
 import {
   fetchRandomSummary,
   fetchSummaryByTitle,
@@ -387,9 +387,6 @@ defineExpose({
             </li>
           </ul>
 
-          <!-- Show facts about the current article if one exists -->
-          <ArticleFactsCard v-if="hasSummary" :summary="current!.summary" />
-
           <div v-if="bookmarks.length > 0" class="sidebar-divider"></div>
           <div v-if="bookmarks.length > 0" class="sidebar-bookmarks">
             <h4 class="sidebar-subtitle">
@@ -422,6 +419,8 @@ defineExpose({
             </ul>
           </div>
         </div>
+        <!-- Show facts about the current article if one exists -->
+        <ArticleFactsCard v-if="hasSummary" :summary="current!.summary" />
       </aside>
     </div>
   </div>
